@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@theme {
+  'dark':
+    --foreground: #ededed;
+}
+
+:root {
+  /*   --background: #ffffff;
+  --foreground: #171717; */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /*     --background: #0a0a0a; */
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.card-container {
+  perspective: 1000px;
+  width: 100%;
+  height: 40vh;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card-container .card-teaser {
+  text-align: center;
+}
+
+.card-container .card-teaser,
+.card-container .card-flipped {
+  position: absolute !important;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  /* Safari */
+  backface-visibility: hidden;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card-container.is-flipped .card-inner {
+  /* transform: rotateY(180deg); */
+}
+
+.card-container:not(.is-flipped) .card-teaser {
+  z-index: 2;
+  transform: rotateY(0deg);
+  /*  transform: rotateY(180deg); */
+}
+
+.card-container:not(.is-flipped) .card-flipped {
+  z-index: -1;
+  transform: rotateY(-180deg);
+  /*  transform: rotateY(180deg); */
+}
+
+.card-container.is-flipped .card-teaser {
+  transform: rotateY(180deg);
+}
+
+.card-container.is-flipped .card-flipped {
+  transform: rotateY(0deg);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.card-body {
+  justify-content: center;
+}
+
+.card-container .card-flipped {
+  /* from https://codepen.io/montanaflynn/pen/DzoOvA by Montana Flynn */
+  background-image:
+    linear-gradient(0deg, transparent 5em, rgba(255, 0, 0, .2) 0, transparent 5.1em),
+    linear-gradient(rgba(0, 0, 255, .15) 1px, transparent 0);
+  background-size: 100% 2.5em;
+  background-position-y: 1em;
+}
+
+html[data-theme='dark'] .card-container .card-flipped {
+  background-image: linear-gradient(0deg, transparent 5em, rgba(255, 0, 0, .2) 0, transparent 5.1em), linear-gradient(rgb(0 0 0 / 25%) 1px, transparent 0);
+}
+
+.list-disc ul {
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.list-disc li {
+  list-style: disc;
+  margin-left: 1em;
+  margin-bottom: 0.4em;
+}
+
+.link-underline a {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 600px) {
+  .container {}
+}

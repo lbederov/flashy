@@ -1,0 +1,242 @@
+[
+    {
+        "name": "Callbacks",
+        "intro": "A callback is a convention in javascript that is often used in asynchronous programming to execute some code at a certain time in your application.",
+        "definition": "<p>A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.</p><p>Examples of synchronous callbacks include the callbacks passed to <a href=\"/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map\">Array.prototype.map()</a>, <a href=\"/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach\">Array.prototype.forEach()</a>, etc. Examples of asynchronous callbacks include the callbacks passed to <a href=\"/en-US/docs/Web/API/Window/setTimeout\">setTimeout()</a> and <a href=\"/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then\">Promise.prototype.then()</a>.</p>",
+        "resources": "<ul><li><a href='https://developer.mozilla.org/en-US/docs/Glossary/Callback_function' target='_blank'>MDN: Callback function</a></li><li><a href=\"http://callbackhell.com/\" target='_blank'>Callback Heck</a></li><ul>",
+        "tags": [
+            "JavaScript",
+            "Event handling"
+        ],
+        "snippet": "callback"
+    },
+    {
+        "name": "Promises",
+        "intro": "A Promise is like a placeholder for a future result—it represents the success or failure of an asynchronous task. Instead of passing callbacks directly into a function, you get a Promise back and attach callbacks to it.",
+        "definition": "<p>A Promise is in one of these 3 states:</p><ul><li><em>pending</em>: initial state, neither fulfilled nor rejected.</li><li><em>fulfilled</em>: meaning that the operation was completed successfully.</li><li><em>rejected</em>: meaning that the operation failed.</li></ul><p>The promise methods are used to associate further action with a promise that becomes settled and they can be chained:</p><ul><li><em>then()</em>: takes up to two arguments: callback functions for the fulfilled and rejected cases of the Promise. Returns a new Promise immediately and this new promise is always pending when returned. (The catch() and finally() methods call then() internally and make error handling less verbose.)</li><li><em>catch()</em>: schedules a function to be called when the promise is rejected. It immediately returns another Promise object, allowing you to chain calls to other promise methods. It is a shortcut for then(undefined, onRejected).</li><li><em>finally()</em>: schedules a function to be called when the promise is settled (either fulfilled or rejected). Can be useful if you want to do some processing or cleanup once the promise is settled, regardless of its outcome.</li></ul><p>A Promise can be created from scratch using its constructor. This should be needed only to wrap old APIs (for example, setTimeout()).</p>",
+        "resources": "<ul><li><a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises' target='_blank'>MDN: Using promises</a></li><li><a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise' target='_blank'>MDN: Promise</a></li><ul>",
+        "tags": [
+            "JavaScript",
+            "Event handling"
+        ],
+        "snippet": "promises"
+    },
+    {
+        "name": "TypeScript",
+        "intro": "TypeScript is a syntactic superset of JavaScript that adds optional static typing, making it easier to write and maintain large-scale applications.",
+        "definition": "<p>TypeScript adds additional syntax to JavaScript to support a tighter integration with your editor. Catch errors early in your editor.</p>",
+        "resources": "<ul><li><a href='https://www.geeksforgeeks.org/introduction-to-typescript/' target='_blank'>Introduction to TypeScript</a></li><li><a href='https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html' target='_blank'>TypeScript for JavaScript Programmers</a></li><li><a href='https://www.typescriptlang.org/docs/handbook/tsconfig-json.html' target='_blank'>About tsconfig.json</a></li><ul>",
+        "tags": [
+            "JavaScript"
+        ],
+        "snippet": "typescript"
+    },
+    {
+        "name": "Constructors",
+        "intro": "Constructors are a way to create objects that have a set of properties and methods that are shared by all instances of that object.",
+        "definition": "A constructor belongs to a particular class \"object\" that is instantiated. The constructor initializes this object and can provide access to its private information. In JavaScript it is usually declared at the instance of a class using a \"new\" operator (this assigns a new object reference to a variable).",
+        "resources": "<ul><li><a href='https://developer.mozilla.org/en-US/docs/Glossary/Constructor' target='_blank'>MDN: Constructor</a></li><li><a href=\"https://css-tricks.com/understanding-javascript-constructors/\" target='_blank'>Constructors on CSS Tricks</a></li><ul>",
+        "tags": [
+            "JavaScript",
+            "Object-Oriented Programming (OOP)",
+            "Objects"
+        ],
+        "snippet": "constructors"
+    },
+    {
+        "name": "Propagation",
+        "intro": "JavaScript uses Event Propagation to handle how events travel through the Document Object Model (DOM) when an event occurs and reaches the target element, triggering further actions based on the event.",
+        "definition": "<p>The modern way to create events are by adding an event listener to an element and you need to pass three different parameters:  (1) type of event you want to track, (2) the callback/function that you want to execute when that event takes place and (3) the type of propagation.</p><p>The type of propagation is a boolean and it determines the order in which the event is tracked through the DOM: \"false\" (default, AKA \"event bubbling\") means the event bubbles up from the element that was the target up through the top of the DOM or \"true\"(AKA \"event capturing\") means the event executes on ancestor first. You can also control whether the event continues to propagate through the DOM, i.e. bubble up or capture down, by using the stopPropagation method.</p>",
+        "resources": "<ul><li><a href=\"https://www.freecodecamp.org/news/event-bubbling-and-event-capturing-in-javascript/\" target='_blank'>Free code camp</a></li><ul>",
+        "tags": [
+            "Event handling",
+            "JavaScript"
+        ],
+        "snippet": "propagation"
+    },
+    {
+        "name": "Arrow Functions",
+        "intro": "Arrow functions are a more concise way to write functions in JavaScript. They are often used in place of anonymous functions.",
+        "definition": "Some distinct features of arrow functions: <ul><li>Allow you to have implicit returns: if there's only one argument, that argument will be returned by the function without having to include a return statement. If a function is returned, the return statement is required.</li><li>If you're passing only one parameter, you can omit the parenthesis. If you have no parameters or if you have more than one parameter, you still need the parenthesis.</li><li>Arrow functions aren't for everything, and that's because the \"this\" keyword isn't bound like it normally would, so if you're want it to be bound as usual, you'll need to use a regular function.</li></ul>",
+        "resources": "<ul><li><a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions\" target='_blank'>Arrow Functions at MDN</a></li><ul>",
+        "tags": [
+            "JavaScript",
+            "Functions"
+        ],
+        "snippet": "arrow functions"
+    },
+    {
+        "name": "Flexbox",
+        "intro": "Flexbox is a layout method for arranging items in rows or columns.",
+        "definition": "<p>CSS flexible box layout enables you to:</p> <ul><li>Vertically center a block of content inside its parent.</li><li>Make all the children of a container take up an equal amount of the available width/height, regardless of how much width/height is available.</li><li>Make all columns in a multiple-column layout adopt the same height even if they contain a different amount of content.</li></ul><p>Basic setup: </p><ul><li>Properties for the Parent (flex container): <ul><li><strong>display: flex;</strong></li><li><strong>flex-direction:</strong> row; (or row-reverse, column, column-reverse)</li><li><strong>flex-wrap:</strong> nowrap;  (wrap | wrap-reverse)</li><li><strong>justify-content:</strong> flex-start; (also flex-end | center | space-between | space-around | space-evenly | start | end | left | right ... + safe | unsafe)</li><li><strong>align-items:</strong> stretch; (flex-start | flex-end | center | baseline | first baseline | last baseline | start | end | self-start | self-end + ... safe | unsafe)</li><li><strong>align-content:</strong> flex-start; (or flex-end | center | space-between | space-around | space-evenly | stretch | start | end | baseline | first baseline | last baseline + ... safe | unsafe)</li><li><strong>gap, row-gap, column-gap</strong> specified in units</li></ul></li><li>Properties for the Children (flex items): <ul><li><strong>flex-grow:</strong> 1; (or another unitless value to signify proportion by which this child element can be bigger than its siblings)</li><li><strong>flex-shrink:</strong> 1; (same as above for shrinking)</li><li><strong>flex-basis:</strong> auto; (or length in percentage or units or can be a keyword like \"min-content.\") sets up the size of the element relative to the parent container</li><li><strong>flex:</strong> 1, 1, auto; is a shorthand that combines flex-grow, flex-shrink, and flex-basis.</li><li><strong>align-self:</strong> auto; (flex-start | flex-end | center | baseline | stretch) - this overrides the default alignment defined for the parent container.</li></ul></li></ul>",
+        "resources": "<ul><li><a href='https://css-tricks.com/snippets/css/a-guide-to-flexbox/' target='_blank'>CSS Tricks: A Complete Guide to Flexbox</a></li><li><a href='https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox' target='_blank'>MDN: Basic Concepts of Flexbox</a></li><ul>",
+        "tags": [
+            "CSS",
+            "Flexbox"
+        ],
+        "snippet": "flexbox"
+    },
+    {
+        "name": "Grid",
+        "intro": "CSS Grid Layout is a two-dimensional layout system for the web that allows you to create complex layouts with rows and columns.",
+        "definition": "",
+        "resources": "<ul><li><a href='https://css-tricks.com/snippets/css/complete-guide-grid/'>CSS Tricks: A Complete Guide to Grid</a></li><li><a href='https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout'>MDN: Grid Layout</a></li><ul>",
+        "tags": [
+            "CSS",
+            "Grid"
+        ],
+        "snippet": "grid"
+    },
+    {
+        "name": "Git Basics",
+        "intro": "Version control allows you to manage changes to projects by saving the state of code at different times. By far, the most popular version control language is git with roughly 70% of professional developers saying they use it over other technologies.",
+        "definition": "<ul><li>You can think of version control as something like a time machine that lets you go to pre-defined points in time. You create save these points in time a commits that will let you come back and revisit those points in the future.</li><li>Git also allows you to create branches, they're similar to commits but you can create these to do bigger experiments with code. Commits are linear progressions in your code. When you want to really change big parts of the code, you can do a branch.</li><li>One of the things that makes Git really popular is that it's a distributed version control system. The difference is that different people can check out the same code to different machines and they can work on the code separately. So one person can be working on the CSS and another on a javascript feature and then they can get together and merge those changes back into the application.</li><li>So the traditional process for working with git is to make changes to your code and start by staging those changes. Staging is a temporary placeholder for your code. Once you're happy with your code, you commit that and that stores a point in time you can come back to. If you want to work on a new feature, you can use branches and then use the merge command to bring those changes to another branch.</li></ul>",
+        "resources": "<ul class='list-disc'> <li><a href='https://git-scm.com/' target='_blank'>Git Install</a></li>      <li><a href='https://git-scm.com/docs' target='_blank'>Git Reference</a></li><li><a href='https://education.github.com/git-cheat-sheet-education.pdf' target='_blank'>Git Cheat sheet</a></li><li><a href='https://marklodato.github.io/visual-git-guide/index-en.html' target='_blank'>Visual guide to Git</a></li><li><a href='https://www.atlassian.com/git' target='_blank'>Atlassian: Getting Git right</a></li></ul>",
+        "tags": [
+            "Version control",
+            "Git",
+            "GitHub"
+        ]
+    },
+    {
+        "name": "Routing",
+        "intro": "<ul>  <li>Uses URI</li>  <li>Methods</li>  <li>Node &amp; ExpressJS</li></ul>",
+        "definition": "<ul><li>An application that can manage routing uses the URI or Uniform Resource Identifier to communicate and send requests to a server.</li><li>The server expects you to specify a method, which tells the server the action you want the server to perform. So, for example you can ask the server to use a GET method, which usually just returns some data or a DELETE method when you want the server to delete a record in a piece of data.</li><li>Different servers do this differently, but Node with the ExpressJS framework gives you a super easy way to manage the different types of requests. NodeJS also gives you direct access to the file system, which JavaScript doesn't.</li></ul>",
+        "resources": "",
+        "tags": [
+            "Node.js",
+            "ExpressJS",
+            "Routing"
+        ],
+        "snippet": "routing"
+    },
+    {
+        "name": "Sass",
+        "intro": "Sass stands for syntactically Awesome Stylesheets, but more importantly it's a way of writing CSS that is similar to CSS, but gives you some additional capabilities.",
+        "definition": "The main features that Sass gives you are variables, nesting, partials and mixins, which are like functions. (Some of these features are becoming available in newer versions of CSS.)<ul>  <li>Preprocessor: needs to be compiled into CSS.</li>  <li>Variables: define variables and reuse (variable names start with a $)</li>  <li>Functions:  reusable formulas defined using the @function at-rule.</li>  <li>Partials: files named with a \"_\" prefix that are not compiled and are imported instead.</li>  <li>Imports:  @import rule with the ability to import Sass and CSS stylesheets, providing access to mixins, functions, and variables and combining multiple stylesheets' CSS together. Unlike plain CSS imports, which require the browser to make multiple HTTP requests as it renders your page, Sass imports are handled entirely during compilation.</li>  <li>Mixins: functions that can take arguments and defaults. Called from edclarations with a \"@include\" statement.</li>  <li>Extend/Inheritance: @extend allows selectors to inherit styles from one another.</li>  <li>Operators: for example, == and != are used to check if two values are the same.</li>  <li>Flow Control Rules: @if, @each, @for, @while</li>  <li>At-Rules: @use, @forward, @import, @mixin, @function, @extend, @debug, etc.</li></ul>",
+        "resources": "<ul>  <li><a href='https://sass-lang.com/' target='_blank'>Sass</a></li></ul>",
+        "tags": [
+            "CSS",
+            "Sass"
+        ],
+        "snippet": "sass"
+    },
+    {
+        "name": "React context",
+        "intro": "Context provides a way to pass data through the component tree without having to pass props down manually at every level.",
+        "definition": "Passing props can become verbose and inconvenient when you need to pass some prop deeply through the tree, or if many components need the same prop. Context lets a parent component provide data to the entire tree below it.",
+        "resources": "<ul>  <li><a href='https://react.dev/learn/passing-data-deeply-with-context' target='_blank'>Passing Data Deeply with Context</a></li>   <li><a href='https://vercel.com/guides/react-context-state-management-nextjs' target='_blank'>Context in Next.js</a></li>    <li><a href='https://react.dev/reference/react/useContext' target='_blank'>useContext</a></li>    <li><a href='https://react.dev/reference/react/createContext' target='_blank'>createContext</a></li></ul>",
+        "tags": [
+            "ReactJS",
+            "JavaScript"
+        ],
+        "snippet": "context"
+    },
+    {
+        "name": "Next.js",
+        "intro": "Next.js is a React framework for building full-stack web applications. You use React Components to build user interfaces, and Next.js for additional features and optimizations.",
+        "definition": "<p>Some of the main Next.js features include:</p><ul><li>Routing: A file-system based router built on top of Server Components that supports layouts, nested routing, loading states, error handling, and more.</li><li>Rendering</li><li>Simplified data fetching</li><li>Styling: including CSS Modules, Tailwind CSS, and CSS-in-JS</li><li>Optimization: for Core Web Vitals for images, fonts, and scripts.</li><li>Improved support for TypeScript</li></ul>",
+        "resources": "<ul>  <li><a href='https://nextjs.org/docs' target='_blank'>What is Next.js?</a></li>   <li><a href='https://vercel.com/guides/react-context-state-management-nextjs' target='_blank'>Context in Next.js</a></li>    <li><a href='https://react.dev/reference/react/useContext' target='_blank'>useContext</a></li>    <li><a href='https://react.dev/reference/react/createContext' target='_blank'>createContext</a></li></ul>",
+        "tags": [
+            "ReactJS",
+            "JavaScript"
+        ]
+    },
+    {
+        "name": "NPM Basics",
+        "intro": "NPM is the world's largest software registry. Open source developers from every continent use npm to share and borrow packages, and many organizations use npm to manage private development as well.",
+        "definition": "<ul>    <li>NPM allows you to create or use a variety of packages available to developers on the web.</li>    <li>Use the <a href='https://www.npmjs.com/' target='_blank'>npmjs.com</a> website to discover packages, set up profiles, and manage other aspects of your npm experience. For example, you can set up organizations to manage access to public or private packages.</li>    <li>In order to use NPM, you need to install NodeJS from <a href='https://nodejs.org/en/' target='_blank'>nodejs.org</a>. Once you install NodeJS, you'll have NPM installed.</li>    <li>To work with NPM, you need to use a CLI from the terminal.</li></ul>",
+        "resources": "<ul>  <li><a href='https://nodejs.org/en/' target='_blank'>NodeJS Install</a></li>    <li><a href='https://git-scm.com/' target='_blank'>Git Install</a></li>    <li><a href='https://www.npmjs.com/' target='_blank'>NPM Website</a></li></ul>",
+        "tags": [
+            "NPM",
+            "Node.js",
+            "JavaScript"
+        ]
+    },
+    {
+        "name": "CSS Variables",
+        "intro": "CSS Variables are a way to define and use variables in CSS. They are also known as custom properties.",
+        "definition": "CSS Variables are defined using the -- prefix and are used with the var() function. They can be used to store colors, font sizes, spacing, and more. To create variables, you define a :root rule and then put your variables inside that rule. They can also be used in media queries and can be updated using JavaScript.",
+        "resources": "<ul><li><a href='https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties'>MDN: Using CSS custom properties</a></li><li><a href='https://developer.mozilla.org/en-US/docs/Web/CSS/--*' target='_blank'>MDN: --* (custom properties)</a></li><li><a href='https://css-tricks.com/making-custom-properties-css-variables-dynamic/' target='_blank'>CSS Tricks</a></li></ul>",
+        "tags": [
+            "CSS"
+        ],
+        "snippet": "css variables"
+    },
+    {
+        "name": "Closures",
+        "intro": "JavaScript closures involve the combination of functions and the scope in which they are defined. A closure allows a function to access variables from its scope, outer function scope, and the global scope. This creates a \"closed-over\" environment, preserving the state of the outer function even after it has finished executing.",
+        "definition": "A closure is the combination of a function and the lexical environment within which that function was declared. This environment consists of any variables that were in-scope at the time the closure was created. Traditionally (before ES6), JavaScript variables only had two kinds of scopes: function scope and global scope. Variables declared with var are either function-scoped or global-scoped, depending on whether they are declared within a function or outside a function. In ES6 blocks are finally treated as scopes but only if you declare variables with let or const. In addition, ES6 introduced modules, which introduced another kind of scope. Closures are able to capture variables in all these scopes. A nested function's access to the outer function's scope includes the enclosing scope of the outer function—effectively creating a chain of function scopes. ",
+        "resources": "<ul><li><a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures'>MDN: Closures</a></li></ul>",
+        "tags": [
+            "JavaScript",
+            "Functions"
+        ],
+        "snippet": "closures"
+    },
+    {
+        "name": "IIFE",
+        "intro": "An Immediately Invoked Function Expression (IIFE) is a JavaScript function that runs as soon as it is defined.",
+        "definition": "An IIFE is a JavaScript function that runs as soon as it is defined. It is a design pattern that is also known as a Self-Executing Anonymous Function and contains two major parts: the first is the anonymous function with lexical scope enclosed within the Grouping Operator (). This prevents accessing variables within the IIFE idiom as well as polluting the global scope. The second part creates the immediately invoked function expression () through which the JavaScript engine will directly interpret the function.",
+        "resources": "<ul><li><a href='http://benalman.com/news/2010/11/immediately-invoked-function-expression/'>Defining an IFFE</a></li>  <li><a href='http://stackoverflow.com/questions/8228281/what-is-the-function-construct-in-javascript'>IFFE question in Stack Overflow</a></li></ul>",
+        "tags": [
+            "JavaScript",
+            "Functions"
+        ],
+        "snippet": "iife"
+    },
+    {
+        "name": "JSON",
+        "intro": "JSON (JavaScript Object Notation) is a lightweight data-interchange text format for sharing data between clients and servers.",
+        "definition": "JSON is a text format that is completely language independent, but very similar to the way objects are structured  within JavaScript. In JSON, property names must be double-quoted strings; trailing commas are forbidden. Often used JSON methods in JS are <strong>JSON.stringify()</strong> to convert to a string and <strong>JSON.parse()</strong> to parse a received piece of data from the server as JSON, optionally transforming the produced value and its properties, and return a JS object.",
+        "resources": "<ul><li><a href='https://www.json.org/json-en.html'>JSON.org</a></li><li><a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON'>MDN: JSON</a></li></ul>",
+        "tags": [
+            "JavaScript",
+            "Data",
+            "API"
+        ],
+        "snippet": "json"
+    },
+    {
+        "name": "REST",
+        "intro": "REST (Representational State Transfer) is an architectural style that imposes conditions on how an API should work. .",
+        "definition": "<p>REST is a set of architectural constraints, not a protocol or a standard. A Web API/Service conforming to this style is called RESTful API. When a client request is made via a RESTful API, it transfers a representation of the state of the resource to the requester or endpoint via HTTP in one of these formats: JSON (Javascript Object Notation), HTML, XLT, Python, PHP, or plain text.</p><p>RESTful principles:</p><ul><li>Uniform interface</li><li>Client-server</li><li>Stateless communication: data is not stored, each request separate</li><li>Cacheable data: RESTful web services support caching, which is the process of storing some responses on the client or on an intermediary to improve server response time. </li><li>Layered system: RESTful web service can run on several servers with multiple layers such as security, application, and business logic, working together to fulfill client requests. These layers remain invisible to the client.</li><li>Code-on-demand</li></ul>",
+        "resources": "<ul><li><a href='https://restfulapi.net/' target='_blank'>REST API Tutorial</a></li><li><a href='https://aws.amazon.com/what-is/restful-api/' target='_blank'>AWS: What is RESTful API?</a></li><li><a href='https://www.redhat.com/en/topics/api/what-is-a-rest-api' target='_blank'>RedHat</a></li></ul>",
+        "tags": [
+            "API",
+            "HTTP"
+        ]
+    },
+    {
+        "name": "SOAP vs REST",
+        "intro": "SOAP (Simple Object Access Protocol) and REST (Representational State Transfer) are two popular web service communication protocols.",
+        "definition": "<p>SOAP is a protocol that uses XML to exchange information in a decentralized, distributed environment. It is a messaging protocol specification for exchanging structured information in the implementation of web services in computer networks. REST is an architectural style that uses a stateless, client-server, cacheable communications protocol. It is often used in web services development.</p><p>key differences:</p><ul><li>Underlying protocol:<ul><li>The SOAP itself is a protocol (over HTTP) for developing SOAP-based APIs.</li><li>REST is not a protocol, but almost synonymous with HTTP.</li></ul></li><li>Data format:<ul><li>SOAP relies exclusively on XML to provide messaging services, which can become extremely complex, particularly for JavaScript.</li><li>REST can use CSV, JSON, and RSS.</li></ul></li><li>Statefulness:<ul><li>Normally, SOAP Web services are stateless - but you can easily make SOAP API stateful by changing the code on the server.</li><li>RESTful Web services are completely stateless.</li></ul></li><li>Caching:<ul><li>REST provides a good caching infrastructure over HTTP GET methods and response data is marked as cacheable or not-cachable.</li><li>SOAP, when using HTTP as the transfer mechanism, is sent via HTTP POST requests. As HTTP POST is non-idempotent, it can not be cached at the HTTP level. So, SOAP responses should be cached using information given in the Response Caching Optimization Module.</li></ul></li><li>HTTP verbs used:<ul><li>REST is primarily used over HTTP and it makes use of HTTP GET, POST, PUT, DELETE, and PATCH methods for different CRUD operations.</li><li>SOAP also defines a binding to the HTTP protocol. When binding to HTTP, all SOAP requests are sent through HTTP POST.</li></ul></li><li>Security:<ul><li>REST is based on HTTP - which itself is a very insecure protocol and additional security must be implemented on teh server.</li><li>SOAP security is well standardized through WS-SECURITY, which is very feature-rich and easy to implement into application code.</li></ul></li><li>REST can make use of SOAP as the underlying protocol for web services, but not vice versa.</li></ul>",
+        "resources": "<ul><li><a href='https://restfulapi.net/soap-vs-rest-apis/' target='_blank'>REST vs. SOAP: The Differences</a></li><li><a href='https://www.geeksforgeeks.org/difference-between-rest-api-and-soap-api/' target='_blank'>Geeks for Geeks</a></li><li><a href='https://aws.amazon.com/compare/the-difference-between-soap-rest/' target='_blank'>AWS: REST vs. SOAP</a></li></ul>",
+        "tags": [
+            "API",
+            "HTTP"
+        ]
+    },
+    {
+        "name": "Web Workers",
+        "intro": "Web Workers make it possible to run a script operation in the background separate from the main execution thread of a web application.",
+        "definition": "Web Workers make it possible to run a script operation in the background separate from the main execution thread of a web application. The worker thread can perform tasks without interfering with the user interface. Once created, a worker can send messages to the JavaScript code that created it by posting messages to an event handler specified by that code (and vice versa).",
+        "resources": "<ul><li><a href='https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API'>MDN: Web Workers API</a></li><li><a href='https://www.w3.org/TR/workers/'>W3C: Web Workers</a></li></ul>",
+        "tags": [
+            "JavaScript",
+            "Web Workers"
+        ],
+        "snippet": "web workers"
+    },
+    {
+        "name": "GraphQL",
+        "intro": "GraphQL is a query language for APIs and a runtime for executing those queries with your existing data.",
+        "definition": "GraphQL is a query language for APIs and a runtime for executing those queries by using a type system you define for your data. It was developed by Facebook in 2012 and released as an open-source project in 2015. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need, and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.",
+        "resources": "<ul><li><a href='https://graphql.org/'>GraphQL</a></li><li><a href='https://graphql.org/learn/'>Learn GraphQL</a></li></ul>",
+        "tags": [
+            "API",
+            "GraphQL"
+        ],
+        "snippet": "graphql"
+    }
+]
