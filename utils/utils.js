@@ -22,8 +22,8 @@ export const filterByTag = (array, str) => {
 };
 
 export const paginateArray = (array, pageSize, currPage) => {
-  console.log('array: ', array, ' | pageSize: ', pageSize, ' | currPage: ', currPage);
-  console.log('array AFTER: ', array.slice((currPage - 1) * pageSize, currPage * pageSize));
+  //console.log('array: ', array, ' | pageSize: ', pageSize, ' | currPage: ', currPage);
+  //console.log('array AFTER: ', array.slice((currPage - 1) * pageSize, currPage * pageSize));
   return array.slice((currPage - 1) * pageSize, currPage * pageSize);
 }
 

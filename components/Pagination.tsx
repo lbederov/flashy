@@ -16,7 +16,7 @@ const Pagination: React.FC = () => {
     return (
         <>
             {pageview && !(lastPage == 1 && page == 1) ? (
-                <div className="container max-w-full mt-4 text-center">
+                <div className="container max-w-full my-4 text-center">
                     <div className="join">
                         {(lastPage >= 1) ? (<button className={`join-item ${(page == 1) ? 'btn-disabled' : ''} btn`}
                             onClick={() => { handlePageChange(page - 1); }}>«</button>) : ('')}

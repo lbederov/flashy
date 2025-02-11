@@ -38,7 +38,7 @@
         "resources": "<ul><li><a href='https://developer.mozilla.org/en-US/docs/Glossary/Constructor' target='_blank'>MDN: Constructor</a></li><li><a href=\"https://css-tricks.com/understanding-javascript-constructors/\" target='_blank'>Constructors on CSS Tricks</a></li><ul>",
         "tags": [
             "JavaScript",
-            "Object-Oriented Programming (OOP)",
+            "OOP",
             "Objects"
         ],
         "snippet": "constructors"

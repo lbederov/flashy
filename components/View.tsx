@@ -1,10 +1,11 @@
 'use client'
 import React, { createContext, useEffect, useState, useCallback } from 'react';
-import { shuffleArray, filterByTag, updateSearchParam, findRandom, paginateArray } from '../utils/utils';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation'
+import { useDebounce } from 'use-debounce';
 import Cards from './Cards';
 import Nav from './Nav';
 import Pagination from './Pagination'
+import { shuffleArray, filterByTag, updateSearchParam, findRandom, paginateArray } from '../utils/utils';
 import cards from '../app/data/data.json';
 
 export interface CardsArray {
@@ -52,6 +53,7 @@ const View = () => {
   const [view, setView] = useState<CardsArray[]>(cards);
   const [page, setPage] = useState(pageNumber ? parseInt(pageNumber) : 1);
   const [searchTerm, setSearchTerm] = useState(search?.toString() || '');
+  const [debouncedText] = useDebounce(searchTerm, 500);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
@@ -88,11 +90,14 @@ const View = () => {
   useEffect(() => {
     handlePageChange(page);
     const params = new URLSearchParams(searchParams.toString());
-    updateSearchParam(params, 'search', searchTerm.toString().toLowerCase());
+    console.log(debouncedText);
+    
+    updateSearchParam(params, 'search', debouncedText.toString().toLowerCase());
     updateSearchParam(params, 'page', page.toString());
     router.replace(`${pathname}?${params.toString()}`);
     setIsLoading(false);
-  }, [page, view]);
+  }, [page, view, debouncedText]);
+  
   //
   return (
       <ViewContext.Provider value={{ view, setView, page, setPage, pageview, searchTerm, setSearchTerm, setPageview, handleViewChange, router, params, searchParams, pathname, handlePageChange, itemsPerPage, handleSearch, theme, setTheme, isFlipped: false, setIsFlipped: () => { } }}>
@@ -102,7 +107,7 @@ const View = () => {
         {view && view.length > 0 && !isLoading ?
           (<>
             <div className='container max-w-full my-4'>
-              <span>Showing {view.length > 1 && `${pageview.length}  of `}{view.length} flash {view.length === 1 ? `card` : `cards`}</span>
+              <span>Showing {view.length > itemsPerPage && `${(page-1)*itemsPerPage + 1}–${((page-1)*itemsPerPage) + pageview.length}  of `}{searchTerm !== 'random' ? view.length : 'a random '} flash {view.length === 1 ? `card` : `cards`}</span>
             </div>
             <Cards {...pageview} />
             <Pagination />
