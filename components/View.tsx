@@ -90,8 +90,6 @@ const View = () => {
   useEffect(() => {
     handlePageChange(page);
     const params = new URLSearchParams(searchParams.toString());
-    console.log(debouncedText);
-    
     updateSearchParam(params, 'search', debouncedText.toString().toLowerCase());
     updateSearchParam(params, 'page', page.toString());
     router.replace(`${pathname}?${params.toString()}`);
@@ -104,7 +102,7 @@ const View = () => {
         <header className='container flex max-w-full'>
           <Nav />
         </header>
-        {view && view.length > 0 && !isLoading ?
+        {!isLoading && view && view.length > 0 ?
           (<>
             <div className='container max-w-full my-4'>
               <span>Showing {view.length > itemsPerPage && `${(page-1)*itemsPerPage + 1}–${((page-1)*itemsPerPage) + pageview.length}  of `}{searchTerm !== 'random' ? view.length : 'a random '} flash {view.length === 1 ? `card` : `cards`}</span>

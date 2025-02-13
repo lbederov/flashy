@@ -26,10 +26,11 @@ const Card: React.FC<CardHtml> = ({ name, intro, definition, resources, tags, sn
     const introHtml = intro ? parse(intro) : null;
     const resourcesHtml = resources ? parse(resources) : null;
 
+    const [isFlipped, setIsFlipped] = useState<boolean>(false);
+
     useEffect(() => {
         setIsFlipped(false);
     }, [context?.view, context?.theme]);
-    const [isFlipped, setIsFlipped] = useState<boolean>(false);
     
     if (!context) {
         return null;

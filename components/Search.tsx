@@ -7,7 +7,7 @@ const Search: React.FC = () => {
   const context = useContext(ViewContext);
   useEffect(() => {
     handleViewChange(searchTerm);
-  }, [context?.searchTerm, context?.handleViewChange]);
+  }, [context?.searchTerm]);
 
   if (!context) {
     return null;
