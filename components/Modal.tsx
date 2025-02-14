@@ -1,6 +1,4 @@
-
-import { ViewContext } from './View';
-import React, { useContext } from 'react';
+import React from 'react';
 import { CardHtml, bgColors } from './Card';
 interface CodeSnippets {
   [key: string]: {
@@ -17,14 +15,8 @@ const borderColors = {
   light: 'border-gray',
   dark: 'border-gray-800'
 }
+const Modal: React.FC<CardHtml & { theme: 'light' | 'dark' }> = ({ name, introHtml, defHtml, resourcesHtml, snippet, id, theme }) => {
 
-const Modal: React.FC<CardHtml> = ({ name, introHtml, defHtml, resourcesHtml, snippet, id }) => {
-
-  const context = useContext(ViewContext);
-  if (!context) {
-    return null;
-  }
-  const { theme } = context;
   const codeSnippet = theCode && snippet && theCode[snippet] ? Array.from(theCode[snippet]?.body) ?? [] : [];
 
   return (
@@ -58,4 +50,4 @@ const Modal: React.FC<CardHtml> = ({ name, introHtml, defHtml, resourcesHtml, sn
   )
 }
 
-export default Modal
+export default React.memo(Modal)

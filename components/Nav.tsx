@@ -1,6 +1,6 @@
 'use client'
 import React, { useContext } from 'react';
-import { ViewContext } from './View';
+import { ViewContext } from './Provider';
 import Search from './Search';
 import Theme from './Theme';
 
@@ -15,8 +15,10 @@ const Nav: React.FC = () => {
     light: 'bg-base-300',
     dark: 'bg-gray-700'
   }
+  
   return (
     <>
+    <header className='container flex max-w-full'>
       <div className='flex flex-grow sm:mt-4 flex-col sm:flex-row '>
         <div className='h-full py-3 pr-3 align-self-center'>Select topic: </div>
         <div className='md:join'>
@@ -30,10 +32,11 @@ const Nav: React.FC = () => {
         </div>
       </div>
       <div className='md:border-b border-gray-500/30 ml-5 md:ml-3 md:flex mt-6 md:mt-0'>
-        <Theme />
+        <Theme theme={theme} />
       </div>
+    </header>
     </>
   )
 }
 
-export default Nav
+export default React.memo(Nav)

@@ -1,18 +1,8 @@
-import React, { useContext, useEffect } from 'react';
-import { ViewContext } from './View';
-import { CardsArray } from './View';
+import { CardsArray } from './Provider';
 import Card from './Card';
 
-const Cards: React.FC<CardsArray[]> = () => {
-  
-  const context = useContext(ViewContext);
-  useEffect(() => {
-  }, [context?.pageview]);
-  if (!context) {
-    return null;
-  }
+const Cards: React.FC<{ pageview: CardsArray[] }> = ({pageview}) => {
 
-  const { pageview } = context;
   return (
     <div className="container max-w-full">
       <section className='md:grid auto-cols-max gap-5 max-w-full lg:grid-cols-3 md:grid-cols-2 block'>
@@ -23,5 +13,5 @@ const Cards: React.FC<CardsArray[]> = () => {
     </div>
   )
 }
-
 export default Cards
+//export default React.memo(Cards)

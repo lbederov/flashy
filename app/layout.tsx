@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Provider from "@/components/Provider";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "My interview flash cards",
@@ -14,7 +16,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-base-200 font-sans" data-theme="light">
       <body>
-        {children}
+        <Suspense>
+          <Provider>
+            {children}
+          </Provider>
+        </Suspense>
       </body>
     </html>
   );

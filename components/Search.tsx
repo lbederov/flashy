@@ -1,6 +1,6 @@
 'use client'
 import React, { useContext, useEffect } from 'react';
-import { ViewContext } from './View';
+import { ViewContext } from './Provider';
 
 const Search: React.FC = () => {
 
@@ -8,12 +8,16 @@ const Search: React.FC = () => {
   useEffect(() => {
     handleViewChange(searchTerm);
   }, [context?.searchTerm]);
-
   if (!context) {
     return null;
   }
-  const { handleViewChange, searchTerm, handleSearch } = context;
+    const handleSearch = (newSearchTerm: string) => {
+      setPage(1);
+      setSearchTerm(newSearchTerm);
+    };
+  const { handleViewChange, searchTerm, setSearchTerm, setPage } = context;
   return (
+    <>
     <div className="search-container">
       <input
         type="text"
@@ -23,7 +27,8 @@ const Search: React.FC = () => {
         className="input input-bordered join-item md:h-full w-full md:w-auto"
       />
     </div>
+    </>
   );
 }
 
-export default Search
+export default React.memo(Search)

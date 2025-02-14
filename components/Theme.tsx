@@ -1,19 +1,18 @@
 'use client'
 import React, { useContext, useEffect } from 'react';
-import { ViewContext } from './View';
+import { ViewContext } from './Provider';
 
-const Theme: React.FC = () => {
+const Theme: React.FC<{theme: 'light' | 'dark'}> = ({theme}) => {
   const context = useContext(ViewContext);
 
   useEffect(() => {
     updateTheme();
     document.documentElement.setAttribute('data-theme', theme);
   }, [context?.theme]);
-
   if (!context) {
     return null;
   }
-  const { theme, setTheme } = context;
+  const { setTheme } = context;
   const updateTheme = () => {
     const themeFromLocalStorage = localStorage.getItem('theme');
     const currTheme = (!themeFromLocalStorage || themeFromLocalStorage === '') ? 'light' : (localStorage.getItem('theme') as 'light' | 'dark');
@@ -57,4 +56,4 @@ const Theme: React.FC = () => {
   )
 }
 
-export default Theme
+export default React.memo(Theme)
