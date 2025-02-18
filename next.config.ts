@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
   //basePath: isProd ? '/flashy' : '',
  distDir: 'docs', // or any other name you prefer
  output: 'export',
- basePath: '/flashy',
+ basePath: '/flashy/docs',
  //assetPrefix: process.env.ASSET_PREFIX,
  //basePath: process.env.BASE_PATH,
 };
