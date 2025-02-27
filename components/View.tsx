@@ -13,8 +13,7 @@ const View: React.FC = () => {
     if (!context) {
         return null;
     }
-    const { view, pageview, page, searchTerm, itemsPerPage, isLoading } = context;
-
+    const { view, pageview, page, debouncedText, itemsPerPage, isLoading } = context;
     const lastPage = findLastPage(view, itemsPerPage);
     const pages = Array.from({ length: lastPage }, (_, i) => i + 1);
     return (
@@ -22,13 +21,13 @@ const View: React.FC = () => {
         (pages.length > 0 ?
           (
           <>
-            <Nav />
-            <PageCount pageCount={view.length} pageviewLength={pageview.length} page={page} searchTerm={searchTerm} itemsPerPage={itemsPerPage} />
+            { <Nav /> }
+            <PageCount pageCount={view.length} pageviewLength={pageview.length} page={page} debouncedText={debouncedText} itemsPerPage={itemsPerPage} />
             <Cards pageview={pageview} />
             {pages.length > 1  && <Pagination pages={pages}/> }
           </>
           ) : (<>
-          <Nav /><section className='container mt-4'><h2>Sorry, nothing to display here...</h2></section>
+          { <Nav /> }<section className='container mt-4'><h2>Sorry, nothing to display here...</h2></section>
           </>)
         ) : (
           <h1>Loading...</h1>

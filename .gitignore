@@ -12,10 +12,12 @@
 
 # testing
 /coverage
+server.js
 
 # next.js
 /.next/
 /out/
+/docs
 
 # production
 /build

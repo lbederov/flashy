@@ -10,7 +10,7 @@ const Tags: React.FC<TagsProps> = ({ tags }) => {
   if (!context) {
     return null;
   }
-  const { handleViewChange } = context;
+  const { getCurrentDeck } = context;
   return (
     <>
     <div className='join'>
@@ -19,7 +19,7 @@ const Tags: React.FC<TagsProps> = ({ tags }) => {
           <span key={index} className="badge badge-ghost badge-sm mx-1 cursor-pointer" data-tag={tag} onClick={(e) => {
               const currTag = e.target as HTMLElement;
               if (currTag.dataset.tag) {
-                handleViewChange(currTag.dataset.tag);
+                getCurrentDeck(currTag.dataset.tag);
               }
             }
           }>{tag}

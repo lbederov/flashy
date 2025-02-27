@@ -31,10 +31,3 @@ export const findLastPage = (array, itemsPerPage) => {
   const pages = Math.ceil(array.length / itemsPerPage);
   return pages;
 }
-export const updateSearchParam = (params, query, term) => {
-  if (term && term !== '') {
-    params.set(query, term);
-  } else {
-    params.delete(query);
-  }
-};

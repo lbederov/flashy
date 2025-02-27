@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Provider from "@/components/Provider";
 import { Suspense } from "react";
+import { randomUUID } from 'crypto'
 
 export const metadata: Metadata = {
   title: "My interview flash cards",
@@ -16,10 +17,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-base-200 font-sans" data-theme="light">
       <body>
-        <Suspense>
-          <Provider>
+        <Suspense key={randomUUID()} fallback={<h1>Dis loading!</h1>}>
             {children}
-          </Provider>
         </Suspense>
       </body>
     </html>

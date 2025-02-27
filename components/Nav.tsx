@@ -9,12 +9,14 @@ const Nav: React.FC = () => {
   if (!context) {
     return null;
   }
-  const { handleViewChange, searchTerm, theme } = context;
+  const { handleSearch, setSearchTerm, debouncedText, searchTerm, theme } = context;
 
   const bgColors = {
     light: 'bg-base-300',
     dark: 'bg-gray-700'
   }
+ // console.log('from nav debouncedText: ', debouncedText);
+ // console.log('from nav searchTerm: ', searchTerm);
   
   return (
     <>
@@ -23,10 +25,10 @@ const Nav: React.FC = () => {
         <div className='h-full py-3 pr-3 align-self-center'>Select topic: </div>
         <div className='md:join'>
           <ul className={`menu menu-vertical sm:menu-horizontal rounded-box join-item  ${bgColors[theme]}`} >
-            <li><a className={`${searchTerm === '' ? "active" : ""}`} data-tag="all" onClick={() => handleViewChange('all')}>All</a></li>
-            <li><a className={`${searchTerm === 'random' ? "active" : ""}`} data-tag="random" onClick={() => handleViewChange('random')}>Random</a></li>
-            <li><a className={`${searchTerm === 'javascript' ? "active" : ""}`} data-tag="javascript" onClick={() => handleViewChange("javascript")}>JavaScript</a></li>
-            <li><a className={`${searchTerm === 'css' ? "active" : ""}`} data-tag="css" onClick={() => handleViewChange("css")}>CSS</a></li>
+            <li><a className={`(${debouncedText} === '' || ${debouncedText} === 'all') ? "active" : ""}`} data-tag="all" onClick={() => {setSearchTerm('all'); handleSearch('all');}}>All</a></li>
+            <li><a className={`${debouncedText === 'random' ? "active" : ""}`} data-tag="random" onClick={() => {setSearchTerm('random'); handleSearch('random')}}>Random</a></li>
+            <li><a className={`${debouncedText === 'javascript' ? "active" : ""}`} data-tag="javascript" onClick={() => {setSearchTerm('javascript'); handleSearch("javascript")}}>JavaScript</a></li>
+            <li><a className={`${debouncedText === 'css' ? "active" : ""}`} data-tag="css" onClick={() => {setSearchTerm('css'); handleSearch("css")}}>CSS</a></li>
           </ul>
           <Search />
         </div>
