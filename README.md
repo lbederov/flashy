@@ -2,6 +2,8 @@
 
 Simple app to brush up on developer interview questions using flash cards. Work in progress, more content to come soon.
 
+See it in action at [https://lbederov.github.io/flashy/](https://lbederov.github.io/flashy/)
+
 Features: 
 - Search (limited to tags)
 - Filter by topic
