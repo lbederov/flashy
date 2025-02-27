@@ -9,14 +9,12 @@ const Nav: React.FC = () => {
   if (!context) {
     return null;
   }
-  const { handleSearch, setSearchTerm, debouncedText, searchTerm, theme } = context;
+  const { handleSearch, setSearchTerm, debouncedText, theme } = context;
 
   const bgColors = {
     light: 'bg-base-300',
     dark: 'bg-gray-700'
   }
- // console.log('from nav debouncedText: ', debouncedText);
- // console.log('from nav searchTerm: ', searchTerm);
   
   return (
     <>
@@ -24,7 +22,7 @@ const Nav: React.FC = () => {
       <div className='flex flex-grow sm:mt-4 flex-col sm:flex-row '>
         <div className='h-full py-3 pr-3 align-self-center'>Select topic: </div>
         <div className='md:join'>
-          <ul className={`menu menu-vertical sm:menu-horizontal rounded-box join-item  ${bgColors[theme]}`} >
+          <ul className={`menu menu-vertical sm:menu-horizontal rounded-lg  rounded-b-none md:rounded-bl-lg md:rounded-r-none md:join-item  ${bgColors[theme]}`} >
             <li><a className={`(${debouncedText} === '' || ${debouncedText} === 'all') ? "active" : ""}`} data-tag="all" onClick={() => {setSearchTerm('all'); handleSearch('all');}}>All</a></li>
             <li><a className={`${debouncedText === 'random' ? "active" : ""}`} data-tag="random" onClick={() => {setSearchTerm('random'); handleSearch('random')}}>Random</a></li>
             <li><a className={`${debouncedText === 'javascript' ? "active" : ""}`} data-tag="javascript" onClick={() => {setSearchTerm('javascript'); handleSearch("javascript")}}>JavaScript</a></li>

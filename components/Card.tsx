@@ -45,7 +45,7 @@ const Card: React.FC<CardHtml> = ({ name, intro, definition, resources, tags, sn
             <div key={id} className={`card-container mb-4 md:mb-0 ${isFlipped ? " is-flipped" : ""}`}>
                 <div className='card-inner'>
                     <div className={`card-teaser card drop-shadow-md hover:drop-shadow-xl border-2  cursor-pointer  ${bgColors[theme]} ${borderColors[theme]}`} onClick={() => setIsFlipped(true)}>
-                        <div className="card-body items-center text-center">
+                        <div className="card-body  items-center text-center">
                             <h3 className="card-title md:text-3xl xl:text-4xl">{name}</h3>
                         </div>
                     </div>

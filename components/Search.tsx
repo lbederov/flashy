@@ -21,7 +21,7 @@ const Search: React.FC = () => {
         value={searchTerm}
         onChange={(e) => { setSearchTerm(e.target.value);handleSearch(searchTerm); }}
         placeholder="Search..."
-        className="input input-bordered join-item md:h-full w-full md:w-auto"
+        className="input input-bordered rounded-t-none join-item md:h-full w-full md:w-auto md:rounded-tr-lg "
       />
     </div>
     </>
